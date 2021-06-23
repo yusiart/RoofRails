@@ -1,0 +1,2 @@
+/Users/yuravishnyakov/Projects/RoofRails/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+/Users/yuravishnyakov/Projects/RoofRails/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache

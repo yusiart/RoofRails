@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_RoofRails.-1255524198.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Crystal" t="Include">
+          <e p="Gems Ultimate Pack" t="Include">
+            <e p="READ ME.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="AnimationScript.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Epic Toon FX" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="ETFXLightFade.cs" t="Include" />
+            <e p="ETFXPitchRandomizer.cs" t="Include" />
+            <e p="ETFXRotation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Fog" t="Include">
+          <e p="Advanced Fog" t="Include">
+            <e p="Advanced Vertical Fog.shader" t="Include" />
+            <e p="Quick Setup.txt" t="Include" />
+          </e>
+          <e p="Fix" t="Include">
+            <e p="FixMobileDepth.cs" t="Include" />
+          </e>
+        </e>
+        <e p="MixamoAnimation" t="Include">
+          <e p="Melee Axe Pack" t="Include">
+            <e p="Demo" t="Include">
+              <e p="CameraScroll.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Particle" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ETFXButtonScript.cs" t="Include" />
+              <e p="ETFXFireProjectile.cs" t="Include" />
+              <e p="ETFXLoopScript.cs" t="Include" />
+              <e p="ETFXMouseOrbit.cs" t="Include" />
+              <e p="ETFXProjectileScript.cs" t="Include" />
+              <e p="ETFXSceneManager.cs" t="Include" />
+              <e p="ETFXTarget.cs" t="Include" />
+              <e p="VFX Library" t="Include">
+                <e p="ParticleEffectsLibrary.cs" t="Include" />
+                <e p="PEButtonScript.cs" t="Include" />
+                <e p="UICanvasManager.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Prefabs" t="Include">
+            <e p="Combat" t="Include">
+              <e p="Combat FX.txt" t="Include" />
+            </e>
+            <e p="Environment" t="Include">
+              <e p="Environment FX.txt" t="Include" />
+            </e>
+            <e p="Interactive" t="Include">
+              <e p="Interactive FX.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Bar.cs" t="Include" />
+          <e p="BonusStave.cs" t="Include" />
+          <e p="CameraFollower.cs" t="Include" />
+          <e p="Crystal.cs" t="Include" />
+          <e p="Fire.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerMover.cs" t="Include" />
+          </e>
+          <e p="Saw.cs" t="Include" />
+          <e p="Stave" t="Include">
+            <e p="CrystalCollector.cs" t="Include" />
+            <e p="Stave.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="RoofRails.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
