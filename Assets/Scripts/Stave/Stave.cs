@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
 
 [RequireComponent(typeof(CrystalCollector))]
 public class Stave : MonoBehaviour
@@ -22,12 +22,15 @@ public class Stave : MonoBehaviour
     private float _smallPartXPos;
     private float _largePartXPos;
     private bool _isInCenter = true;
+    private bool _onOneBar;
+    private Rigidbody _rigidbody;
 
     public event UnityAction<float> SizeChanged;
     
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
     
     private void OnEnable()
@@ -60,11 +63,26 @@ public class Stave : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Saw saw))
         {
-            SetStavesPositionsAndLocalScale(saw);
-            ChangeCurrentStavePos(_largePartPos, _largePartScale);
-            CreateSmallPartStave(_smallPartPos, _smallPartScale);
+            if (SetStavesPositionsAndLocalScale(saw))
+            {
+                ChangeCurrentStavePos(_largePartPos, _largePartScale);
+                CreateSmallPartStave(_smallPartPos, _smallPartScale);
 
-            StartCoroutine("StartMoveCenter");
+                StartCoroutine("StartMoveCenter");
+            }
+        }
+
+        if (other.gameObject.TryGetComponent(out Bar bar))
+        {
+            _player.FreezeYPos();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out Bar bar))
+        {
+            _player.DefrostYPos();
         }
     }
 
@@ -75,13 +93,18 @@ public class Stave : MonoBehaviour
         _isInCenter = false;
     }
 
-    private void SetStavesPositionsAndLocalScale(Saw saw)
+    private bool SetStavesPositionsAndLocalScale(Saw saw)
     {
         _cutPoint = saw.transform.position.x;
         _differenceValue = Mathf.Abs(transform.position.x - _cutPoint);
         
         _largePartScale = transform.localScale.y / 2 + _differenceValue / 2;
         _smallPartScale = transform.localScale.y - _largePartScale;
+
+        if (_smallPartScale < 0)
+        {
+            return false;
+        }
 
         if (transform.position.x < saw.transform.position.x)
         {
@@ -96,6 +119,8 @@ public class Stave : MonoBehaviour
         
         _smallPartPos = GetStavePartPosition(_smallPartXPos);
         _largePartPos = GetStavePartPosition(_largePartXPos);
+        
+        return true;
     }
 
     private void ChangeCurrentStavePos(Vector3 largePartPos, float largePartScale)
@@ -145,6 +170,25 @@ public class Stave : MonoBehaviour
         {
             transform.localScale += new Vector3(0f, bonusLenght, 0.0f);
             SizeChanged?.Invoke(transform.localScale.y);
+        }
+    }
+
+    public void CheckForSecondBar()
+    {
+        _onOneBar = !_onOneBar;
+        
+        StartCoroutine("CheckForBarPositions");
+    }
+
+    private IEnumerator CheckForBarPositions()
+    {
+        yield return  new WaitForSeconds(0.15f);
+
+        if (_onOneBar)
+        {
+            _rigidbody.useGravity = true;
+            _rigidbody.constraints = RigidbodyConstraints.None;
+            _player.Falling();
         }
     }
 }

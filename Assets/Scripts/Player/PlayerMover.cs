@@ -7,6 +7,7 @@ public class PlayerMover : MonoBehaviour
 {
    [SerializeField] private float _speed;
    [SerializeField] private float _turningSpeed;
+   [SerializeField] private float _accelerationSpeed;
 
    private void FixedUpdate()
    {
@@ -21,5 +22,21 @@ public class PlayerMover : MonoBehaviour
       {
          transform.position += Vector3.right * _turningSpeed * Time.fixedDeltaTime;
       }
+   }
+   
+   public void Accelerate()
+   {
+      _speed += _accelerationSpeed;
+   }
+   
+   public void Braking()
+   {
+      _speed -= _accelerationSpeed;
+   }
+
+   public void Finished()
+   {
+      _speed = 0;
+      _turningSpeed = 0;
    }
 }
