@@ -142,6 +142,9 @@ public class Stave : MonoBehaviour
 
     private void OnStepOnFire()
     {
+        if (transform.localScale.y < _lenghToCut)
+            return;
+        
         Vector3 lenghtToCut = new Vector3(0, _lenghToCut,0);
 
         float partsSize = _lenghToCut / 2;

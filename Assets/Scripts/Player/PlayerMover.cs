@@ -3,27 +3,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMover : MonoBehaviour
 {
    [SerializeField] private float _speed;
    [SerializeField] private float _turningSpeed;
    [SerializeField] private float _accelerationSpeed;
 
+   private Vector2 _startPosition;
+   private Vector2 _direction;
+   private Rigidbody _rigidbody;
+
+   private void Start()
+   {
+      _rigidbody = GetComponent<Rigidbody>();
+   }
+
    private void FixedUpdate()
    {
-      transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
-
+       transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
+      
       if (Input.GetKey(KeyCode.A))
       {
-         transform.position += Vector3.left * _turningSpeed * Time.fixedDeltaTime;
+         transform.position += Vector3.left * _turningSpeed * 13f * Time.fixedDeltaTime;
       }
       
       if (Input.GetKey(KeyCode.D))
       {
-         transform.position += Vector3.right * _turningSpeed * Time.fixedDeltaTime;
+         transform.position += Vector3.right * _turningSpeed * 13f * Time.fixedDeltaTime;
       }
+
+      
+#if UNITY_ANDROID
+      if (Input.touchCount > 0)
+      {
+         Touch touch = Input.GetTouch(0);
+
+         if (touch.phase == TouchPhase.Moved)
+         {
+            _rigidbody.velocity = new Vector3(touch.deltaPosition.x * _turningSpeed, _rigidbody.velocity.y,
+               _rigidbody.velocity.z);
+         }
+
+         if (touch.phase == TouchPhase.Ended)
+         {
+            _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y,
+               _rigidbody.velocity.z);
+         }
+      }
+#endif
    }
-   
+
+   private void PlayerMove()
+   {
+      transform.position = Vector3.Lerp(transform.position, _direction, _speed * Time.deltaTime);
+   }
+
    public void Accelerate()
    {
       _speed += _accelerationSpeed;

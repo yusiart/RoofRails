@@ -86,6 +86,8 @@
      <Compile Include="Assets\Scripts\Saw.cs" />
      <Compile Include="Assets\Scripts\Stave\CrystalCollector.cs" />
      <Compile Include="Assets\Scripts\Stave\Stave.cs" />
+     <Compile Include="Assets\Scripts\UI\SliderChanger.cs" />
+     <Compile Include="Assets\Scripts\UI\UIExtensions.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Particle\Prefabs\Environment\Environment FX.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -93,6 +95,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Fog\Advanced Fog\Advanced Vertical Fog.shader" />
      <None Include="Assets\Crystal\Gems Ultimate Pack\READ ME.txt" />
+     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Particle\Prefabs\Interactive\Interactive FX.txt" />
@@ -136,6 +139,9 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Users/yuravishnyakov/Games/2019.4.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
