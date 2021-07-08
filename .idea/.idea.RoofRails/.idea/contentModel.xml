@@ -77,18 +77,20 @@
           <e p="BonusStave.cs" t="Include" />
           <e p="CameraFollower.cs" t="Include" />
           <e p="Crystal.cs" t="Include" />
-          <e p="FallingChecker.cs" t="Include" />
+          <e p="FallChekPoint.cs" t="Include" />
           <e p="FinishPlane.cs" t="Include" />
           <e p="Fire.cs" t="Include" />
           <e p="GroundedPoint.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
+            <e p="PlayerAnimatorChanger.cs" t="Include" />
             <e p="PlayerMover.cs" t="Include" />
           </e>
           <e p="Saw.cs" t="Include" />
           <e p="StartGame.cs" t="Include" />
           <e p="Stave" t="Include">
             <e p="CrystalCollector.cs" t="Include" />
+            <e p="FallingChecker.cs" t="Include" />
             <e p="Stave.cs" t="Include" />
           </e>
           <e p="UI" t="Include">

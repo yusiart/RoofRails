@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMover : MonoBehaviour
@@ -20,10 +17,6 @@ public class PlayerMover : MonoBehaviour
    private void Awake()
    {
       _startGame = FindObjectOfType<StartGame>();
-   }
-
-   private void Start()
-   {
       _rigidbody = GetComponent<Rigidbody>();
    }
 
@@ -44,8 +37,11 @@ public class PlayerMover : MonoBehaviour
 
    private void Update()
    {
-      // transform.position += Vector3.forward * _speed * Time.deltaTime;
-      
+      Move();
+   }
+
+   private void Move()
+   {
       if (Input.GetKey(KeyCode.A))
       {
          transform.position += Vector3.left * _turningSpeed * 13f * Time.deltaTime;
@@ -77,11 +73,6 @@ public class PlayerMover : MonoBehaviour
 #endif
    }
 
-   private void PlayerMove()
-   {
-      transform.position = Vector3.Lerp(transform.position, _direction, _speed * Time.deltaTime);
-   }
-
    public void Accelerate()
    {
       _speed += _accelerationSpeed;
@@ -98,7 +89,7 @@ public class PlayerMover : MonoBehaviour
       _turningSpeed = 0;
    }
 
-   public void OnStartMoving()
+   private void OnStartMoving()
    {
       _speed = _initialSpeed;
       _turningSpeed = _initialTurningSpeed;

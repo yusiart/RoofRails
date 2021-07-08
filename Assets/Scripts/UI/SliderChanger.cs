@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SliderChanger : MonoBehaviour
@@ -9,7 +7,6 @@ public class SliderChanger : MonoBehaviour
     [SerializeField] private Transform _endPoint;
 
     private float _allDistance;
-    private float TimeStep = 1;
     private float _sliderSpeed = 0.5f;
 
     private void Start()

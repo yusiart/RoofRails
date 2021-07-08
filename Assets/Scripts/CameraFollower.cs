@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
     [SerializeField] private float _delay;
     [SerializeField] private Vector3 _offset;
+    [SerializeField] private Player _player;
 
-    private Player _player;
     private Vector3 _nextPosition;
     private Stave _stave;
     private bool _isDistantly;
@@ -16,15 +13,12 @@ public class CameraFollower : MonoBehaviour
     
     private void Awake()
     {
-        _stave = FindObjectOfType<Stave>();
+        _stave = _player.GetComponentInChildren<Stave>();
     }
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
-
-        Quaternion target = Quaternion.Euler(15, 0, 0);
-        transform.rotation = target;
+        transform.rotation = Quaternion.Euler(15, 0, 0);
     }
 
     private void OnEnable()

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
@@ -12,7 +8,7 @@ public class Bar : MonoBehaviour
     private GameObject _spark;
     private Vector3 _windTransform;
     private Quaternion _windRotation;
-    
+
     private void Start()
     {
         _windTransform = new Vector3(transform.position.x, transform.position.y + 13, transform.position.z + 25f); 
@@ -23,11 +19,13 @@ public class Bar : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Stave stave))
         {
-            _spark = Instantiate(_sparkTemplate, transform.position, Quaternion.identity);
             stave.GetComponentInParent<PlayerMover>().Accelerate();
-            stave.GetComponentInParent<Player>().Sliding();
+            stave.GetComponentInParent<PlayerAnimatorChanger>().Sliding();
+            stave.GetComponentInParent<Player>().FreezeYPos();
+            
+            _spark = Instantiate(_sparkTemplate, transform.position, Quaternion.identity);
             Instantiate(_wind, _windTransform, _windRotation, transform);
-            stave.CheckForSecondBar();
+            stave.GetComponent<FallingChecker>().CheckForSecondBar();
         }
     }
 
@@ -35,9 +33,11 @@ public class Bar : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Stave stave))
         {
-            Destroy(_spark);
             stave.GetComponentInParent<PlayerMover>().Braking();
-            stave.GetComponentInParent<Player>().StopSliding();
+            stave.GetComponentInParent<PlayerAnimatorChanger>().StopSliding();
+            stave.GetComponentInParent<Player>().DefrostYPos();
+            
+            Destroy(_spark);
         }
     }
 

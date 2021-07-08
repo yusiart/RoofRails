@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(CrystalCollector))]
 public class Stave : MonoBehaviour
 {
     [SerializeField] private GameObject _smallPartTemplate;
@@ -22,15 +19,12 @@ public class Stave : MonoBehaviour
     private float _smallPartXPos;
     private float _largePartXPos;
     private bool _isInCenter = true;
-    private bool _onOneBar;
-    private Rigidbody _rigidbody;
 
     public event UnityAction<float> SizeChanged;
     
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
-        _rigidbody = GetComponent<Rigidbody>();
     }
     
     private void OnEnable()
@@ -70,24 +64,6 @@ public class Stave : MonoBehaviour
 
                 StartCoroutine("StartMoveCenter");
             }
-        }
-
-        if (other.gameObject.TryGetComponent(out Bar bar))
-        {
-            _player.FreezeYPos();
-        }
-        
-        if (other.gameObject.TryGetComponent(out FallingChecker fallingChecker))
-        {
-            Falling();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out Bar bar))
-        {
-            _player.DefrostYPos();
         }
     }
 
@@ -179,29 +155,5 @@ public class Stave : MonoBehaviour
             transform.localScale += new Vector3(0f, bonusLenght, 0.0f);
             SizeChanged?.Invoke(transform.localScale.y);
         }
-    }
-
-    public void CheckForSecondBar()
-    {
-        _onOneBar = !_onOneBar;
-        
-        StartCoroutine("CheckForBarPositions");
-    }
-
-    private IEnumerator CheckForBarPositions()
-    {
-        yield return  new WaitForSeconds(0.15f);
-
-        if (_onOneBar)
-        {
-            Falling();
-        }
-    }
-
-    private void Falling()
-    {
-        _rigidbody.useGravity = true;
-        _rigidbody.constraints = RigidbodyConstraints.None;
-        _player.Falling();
     }
 }
