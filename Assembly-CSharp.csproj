@@ -78,12 +78,14 @@
      <Compile Include="Assets\Scripts\BonusStave.cs" />
      <Compile Include="Assets\Scripts\CameraFollower.cs" />
      <Compile Include="Assets\Scripts\Crystal.cs" />
+     <Compile Include="Assets\Scripts\FallingChecker.cs" />
      <Compile Include="Assets\Scripts\FinishPlane.cs" />
      <Compile Include="Assets\Scripts\Fire.cs" />
      <Compile Include="Assets\Scripts\GroundedPoint.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\Saw.cs" />
+     <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\Stave\CrystalCollector.cs" />
      <Compile Include="Assets\Scripts\Stave\Stave.cs" />
      <Compile Include="Assets\Scripts\UI\SliderChanger.cs" />
@@ -134,14 +136,14 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/Users/yuravishnyakov/Projects/RoofRails/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Users/yuravishnyakov/Games/2019.4.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -76,6 +76,11 @@ public class Stave : MonoBehaviour
         {
             _player.FreezeYPos();
         }
+        
+        if (other.gameObject.TryGetComponent(out FallingChecker fallingChecker))
+        {
+            Falling();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -88,7 +93,7 @@ public class Stave : MonoBehaviour
 
     private IEnumerator StartMoveCenter()
     {
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.8f);
 
         _isInCenter = false;
     }
@@ -189,9 +194,14 @@ public class Stave : MonoBehaviour
 
         if (_onOneBar)
         {
-            _rigidbody.useGravity = true;
-            _rigidbody.constraints = RigidbodyConstraints.None;
-            _player.Falling();
+            Falling();
         }
+    }
+
+    private void Falling()
+    {
+        _rigidbody.useGravity = true;
+        _rigidbody.constraints = RigidbodyConstraints.None;
+        _player.Falling();
     }
 }

@@ -6,12 +6,15 @@ ScriptsOnlyBuild:
     - CameraFollower
     - Crystal
     - CrystalCollector
+    - FallingChecker
     - FinishPlane
     - Fire
     - GroundedPoint
     - Player
     - PlayerMover
     - Saw
+    - SliderChanger
+    - StartGame
     - Stave
     - UIExtensions
     Unity.Rider.Editor.dll:
@@ -42,6 +45,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Outline
+    - UnityEngine.UI.Slider
   sceneClasses:
     Assets/Scenes/RoofRails.unity:
     - Class: 1
@@ -89,49 +94,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11392}
     - Class: 114
-      Script: {instanceID: 11566}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11660}
+      Script: {instanceID: 11674}
     - Class: 114
-      Script: {instanceID: 11664}
+      Script: {instanceID: 11678}
     - Class: 114
-      Script: {instanceID: 11736}
+      Script: {instanceID: 11756}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 11804}
+      Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 11992}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 12052}
+      Script: {instanceID: 12020}
     - Class: 114
-      Script: {instanceID: 12268}
+      Script: {instanceID: 12082}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12404}
     - Class: 114
-      Script: {instanceID: 12594}
+      Script: {instanceID: 12434}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12448}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12648}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12710}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 156264}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 440746}
+      Script: {instanceID: 12922}
+    - Class: 114
+      Script: {instanceID: 13014}
+    - Class: 114
+      Script: {instanceID: 13056}
+    - Class: 114
+      Script: {instanceID: 13080}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 13144}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -357,7 +372,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 8e8c46a7d1a61f62c7a3aa1078e5ecea
+      Hash: 447d099abc51de1df8cc4736638e4d53
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMover
@@ -403,6 +418,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 33f57ae30546b392c3776ab3dda34a83
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartGame
   - hash:
       serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
@@ -531,6 +552,12 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIExtensions
+  - hash:
+      serializedVersion: 2
       Hash: c9a8b80298a116835b51ba1cf9284367
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -631,6 +658,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: adce808f935739bdf9c219613d16361b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SliderChanger
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FallingChecker
   - hash:
       serializedVersion: 2
       Hash: 21d73eda81c18eacd2c91ad5dfaf2e32
@@ -741,22 +780,16 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: c3d3430df9e3ea95e3e3d587961390fb
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: PlayableTrack
-  - hash:
-      serializedVersion: 2
       Hash: f09af2fb7849e4fb3793d58570748b99
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundedPoint
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIExtensions
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: PlayableTrack
   platform: 13
   scenePathNames:
   - Assets/Scenes/RoofRails.unity

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jul 02 13:54:06 EEST 2021
+#Thu Jul 08 13:53:26 EEST 2021
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/yuravishnyakov/Projects/RoofRails/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out

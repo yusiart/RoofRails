@@ -12,7 +12,7 @@ public class CameraFollower : MonoBehaviour
     private Vector3 _nextPosition;
     private Stave _stave;
     private bool _isDistantly;
-    private readonly Vector3 _distanceToChange = new Vector3(0, 4, -6);
+    private readonly Vector3 _distanceToChange = new Vector3(0, 5, -7);
     
     private void Awake()
     {

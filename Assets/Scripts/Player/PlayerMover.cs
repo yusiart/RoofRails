@@ -6,31 +6,54 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMover : MonoBehaviour
 {
-   [SerializeField] private float _speed;
-   [SerializeField] private float _turningSpeed;
+   [SerializeField] private float _initialSpeed;
+   [SerializeField] private float _initialTurningSpeed;
    [SerializeField] private float _accelerationSpeed;
 
    private Vector2 _startPosition;
    private Vector2 _direction;
    private Rigidbody _rigidbody;
+   private StartGame _startGame;
+   private float _speed;
+   private float _turningSpeed;
+
+   private void Awake()
+   {
+      _startGame = FindObjectOfType<StartGame>();
+   }
 
    private void Start()
    {
       _rigidbody = GetComponent<Rigidbody>();
    }
 
+   private void OnEnable()
+   {
+      _startGame.GameStarted += OnStartMoving;
+   }
+
+   private void OnDisable()
+   {
+      _startGame.GameStarted -= OnStartMoving;
+   }
+
    private void FixedUpdate()
    {
-       transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
+      transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
+   }
+
+   private void Update()
+   {
+      // transform.position += Vector3.forward * _speed * Time.deltaTime;
       
       if (Input.GetKey(KeyCode.A))
       {
-         transform.position += Vector3.left * _turningSpeed * 13f * Time.fixedDeltaTime;
+         transform.position += Vector3.left * _turningSpeed * 13f * Time.deltaTime;
       }
       
       if (Input.GetKey(KeyCode.D))
       {
-         transform.position += Vector3.right * _turningSpeed * 13f * Time.fixedDeltaTime;
+         transform.position += Vector3.right * _turningSpeed * 13f * Time.deltaTime;
       }
 
       
@@ -73,5 +96,11 @@ public class PlayerMover : MonoBehaviour
    {
       _speed = 0;
       _turningSpeed = 0;
+   }
+
+   public void OnStartMoving()
+   {
+      _speed = _initialSpeed;
+      _turningSpeed = _initialTurningSpeed;
    }
 }
